@@ -10,18 +10,13 @@
     <title>Zendesk Coding Challenge</title>
 </head>
 <body>
-<h1> Luka's Zendesk Tickets</h1>
+ Tickets subject<br>
+status<br>
+descriptionbr<br>
+tags
 
 
-<ul class="list-group">
-    {% for ticket in tickets %}
-        <li class="list-group-item"> {{ ticket.subject }} {{ ticket.id }} {{ ticket.url }}
 
-            <a href="{{ url_for("ticket_details") }}">Ticket Details</a>
-
-        </li>
-    {% endfor %}
-</ul>
 
 
 </body>

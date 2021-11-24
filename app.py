@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template
+import math
+from flask import Flask, render_template, request, url_for
 
 from zenpy import Zenpy
 
@@ -18,16 +19,15 @@ zenpy_client = Zenpy(**creds)
 
 
 @app.route('/')
-def ticket():
-    tickets = zenpy_client.search(type='ticket')
+def ticket_viewer():
+    tickets = zenpy_client.tickets()
     return render_template('index.html', tickets=tickets)
 
 
-#for ticket in zenpy_client.search(type='ticket'):
-#    print(ticket.requester.name)
-#    print(ticket.to_json())
-#for user in zenpy_client.users():
-#    print(user.name)
+@app.route('/ticket_details/')
+def ticket_details():
+    return render_template('ticket_details.html')
+
 
 
 if __name__ == '__main__':
