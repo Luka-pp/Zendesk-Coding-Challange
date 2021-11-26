@@ -29,6 +29,15 @@ def ticket_details():
     return render_template('ticket_details.html')
 
 
+@app.errorhandler(404)
+def handle_404(exception):
+    return render_template("404.html", exception=exception)
+
+
+@app.errorhandler(500)
+def handle_500(exception):
+    return render_template("404.html", exception=exception)
+
 
 if __name__ == '__main__':
     app.run()

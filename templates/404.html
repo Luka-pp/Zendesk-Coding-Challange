@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center mb-3"> Luka's Zendesk Tickets</h1>
+
+<div class="row text-center">
+    <h1>Sorry :(</h1>
+    <div>
+        <img src="{{ url_for("static", filename="img/404image.jpg") }}" alt="Page 404 Image">
+    </div>
+    <p>Something went wrong, want to go to the <a href="{{ url_for('ticket_viewer') }}">Ticket Viewer Page?</a>
+    </p>
+    <p>The reason it happened is: {{ exception }}</p>
+</div>
+
+{% endblock %}
