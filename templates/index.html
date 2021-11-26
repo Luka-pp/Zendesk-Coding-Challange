@@ -10,7 +10,7 @@
             {% for ticket in tickets %}
                 <li class="list-group-item ">{{ loop.index }}. {{ ticket.subject }} {{ ticket.id }} {{ ticket.url }}
 
-                    <a class=" btn d-flex justify-content-end" href="{{ url_for("ticket_details") }}">Ticket Details</a>
+                    <a class=" btn d-flex justify-content-end" href="{{ url_for("ticket_details", ticket_id=ticket.id) }}">Ticket Details</a>
 
                 </li>
             {% endfor %}
