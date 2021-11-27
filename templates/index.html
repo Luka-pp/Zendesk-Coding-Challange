@@ -2,20 +2,36 @@
 {% block content %}
 
 
-<h1 class="text-center mb-3"> Luka's Zendesk Tickets</h1>
+    <h1 class="text-center mb-3"> Luka's Zendesk Tickets</h1>
 
-<div class="container">
-    <div class="row ">
-        <ol class="list-group">
-            {% for ticket in tickets %}
-                <li class="list-group-item ">{{ loop.index }}. {{ ticket.subject }} {{ ticket.id }} {{ ticket.url }}
-
-                    <a class=" btn d-flex justify-content-end" href="{{ url_for("ticket_details", ticket_id=ticket.id) }}">Ticket Details</a>
-
-                </li>
-            {% endfor %}
-        </ol>
+    <div class="container">
+        <div class="row ">
+            <ol class="list-group">
+                {% for ticket in tickets %}
+                    <li class="list-group-item ">{{ (page-1) * page_size + loop.index }}.
+                        <strong>Subject:</strong> {{ ticket.subject }} <strong> Ticket
+                            Status: </strong> {{ ticket.status }}
+                        <a class="btn d-flex justify-content-end"
+                           href="{{ url_for("ticket_details", ticket_id=ticket.id) }}">Ticket Details</a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
     </div>
-</div>
+    <div class="container">
+                <ul class="pagination d-flex justify-content-center">
+                    {% if page > 1 %}
+                        <a class="btn"
+                           href="{{ url_for("ticket_viewer", page=page-1, page_size=page_size) }}"><</a>
+                    {% endif %}
 
+                    <a class="btn"
+                       href="{{ url_for("ticket_viewer", page=page, page_size=page_size) }}">{{ page }}</a>
+
+                    {% if page < total_pages %}
+                        <a class="btn"
+                           href="{{ url_for("ticket_viewer", page=(page + 1 ), page_size=page_size) }}">></a>
+                    {% endif %}
+                </ul>
+    </div>
 {% endblock %}
