@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
-<div class="col">
-<div class="row d-flex justify-content-center mt-5">
-    <h1 class="text-center">Details for ticket with id: {{ ticket.id }}</h1>
-</div>
-    <div class="row d-flex justify-content-center mt-5">
-        <div class="card " style="width: 80%">
-            <div class="card-body text-center">
-                <h4><strong>Subject: </strong><br>
-                    {{ ticket.subject }}</h4><br>
-                <p class="d-flex justify-content-start"><strong>Ticket requester: </strong>  {{ ticket.requester_id }}</p>
-                <p><strong>Ticket description: </strong><br> {{ ticket.description }}</p><br>
-                <p><strong>Ticket tags: </strong><br> {{ ticket.tags|join(' , ') }}</p>
-                <p class="d-flex justify-content-end"><strong>Ticket assignee: </strong>  {{ ticket.assignee_id }}</p>
-                <a href="{{ url_for('ticket_viewer') }}">Back To All Tickets</a>
+    <div class="container">
+        <div class="col">
+            <div class="row d-flex justify-content-center mt-5">
+                <h1 class="text-center">Details for ticket with id: {{ ticket.id }}</h1>
+            </div>
+            <div class="row d-flex justify-content-center mt-5">
+                <div class="card " style="width: 80%">
+                    <div class="card-body text-center">
+                        <h4><strong>Subject: </strong>
+                            {{ ticket.subject }}</h4><br>
+                        <p><strong>Ticket
+                            requester: </strong> {{ ticket.requester_id }}</p>
+                        <p><strong>Ticket description: </strong><br> {{ ticket.description }}</p><br>
+                        <p><strong>Ticket tags: </strong><br> {{ ticket.tags|join(' , ') }}</p>
+                        <p><strong>Ticket
+                            assignee: </strong> {{ ticket.assignee_id }}</p>
+                        <a href="{{ url_for('ticket_viewer') }}">Back To All Tickets</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 
 {% endblock %}

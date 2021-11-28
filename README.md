@@ -37,11 +37,21 @@ Zendesk Login
 This application uses **Zenpy** to connect to **Zendesk API** and retrieve the tickets. Using Python/Flask application
 is looping through the tickets and displaying each of them in a table. Each Ticket has a **Ticket Details** button which
 redirects user to that specific ticket and all the details of that ticket are displayed. Pagination is implemented
-so de user can page through the ticket in instances of 25 tickets.
+so the user can page through the ticket in instances of 25 tickets.
 
 
 ##Testing
 
+I have attempted to implement testing with Pytest. Unfortunately I did not manage to get the testing done. I have 
+consulted all the documentation I could find about testing my code and tried to implement it to the best of my knowledge, but 
+it did not work. I will continue to work on this issue until I get the automated testing implemented.
+
+I have manually tested the application:
+- All the links work as intended and redirect users to correct to expected outcome
+- All the `ticket details` buttons direct user to correct ticket (I have manually compared the results to given json file)
+- Pagination works as intended and pages through the tickets in instances of 25 tickets per page
+- button on `404_500_other_errors` redirects user back to the first page oif the tickets.
+- application is responsive and easy to use on all screens
 
 ## Resources
 
