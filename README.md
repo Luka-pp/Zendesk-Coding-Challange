@@ -36,7 +36,8 @@ Zendesk Login
 
 This application uses **Zenpy** to connect to **Zendesk API** and retrieve the tickets. Using Python/Flask application
 is looping through the tickets and displaying each of them in a table. Each Ticket has a **Ticket Details** button which
-redirects user to that specific ticket and all the details of that ticket are displayed.
+redirects user to that specific ticket and all the details of that ticket are displayed. Pagination is implemented
+so de user can page through the ticket in instances of 25 tickets.
 
 ## Resources
 
